@@ -1,0 +1,23 @@
+import DsTypography from '@org/ui/material/Typography';
+import { DsTypography as MyTypography } from '@org/ui/material';
+
+<DsTypography />;
+<MyTypography />;
+<DsTypography className="my-class" />;
+<MyTypography className="my-class" />;
+<DsTypography paragraph />;
+<MyTypography paragraph />;
+<DsTypography paragraph className="my-class" />;
+<MyTypography paragraph className="my-class" />;
+<DsTypography paragraph={false} className="my-class" />;
+<MyTypography paragraph={false} className="my-class" />;
+<DsTypography paragraph={true} className="my-class" />;
+<MyTypography paragraph={true} className="my-class" />;
+<DsTypography paragraph={paragraph} className="my-class" />;
+<MyTypography paragraph={paragraph} className="my-class" />;
+<DsTypography paragraph sx={{ marginBottom: "32px" }} />;
+<MyTypography paragraph sx={{ marginBottom: "32px" }} />;
+<DsTypography paragraph sx={{ mb: "32px" }} />;
+<MyTypography paragraph sx={{ mb: "32px" }} />;
+<DsTypography paragraph sx={{ color: "black" }} />;
+<MyTypography paragraph sx={{ color: "black" }} />;

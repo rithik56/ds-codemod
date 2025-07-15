@@ -1,0 +1,42 @@
+{
+  "name": "@am92-react-design-system/codemod",
+  "version": "7.1.1",
+  "author": "React Design System Team",
+  "description": "Codemod scripts for React Design System",
+  "keywords": [
+    "react",
+    "react-component",
+    "@am92/react-design-system",
+    "codemod",
+    "jscodeshift"
+  ],
+  "scripts": {
+    "codemod": "./codemod.js"
+  },
+  "license": "MIT",
+  "repository": "git@github.com:heliumtank92/am92-ds-codemod.git",
+  "homepage": "https://heliumtank92.github.io/am92-ds-codemod",
+  "dependencies": {
+    "@babel/core": "^7.27.4",
+    "@babel/runtime": "^7.27.6",
+    "@babel/traverse": "^7.27.4",
+    "@mui/x-internals": "^8.6.0",
+    "jscodeshift": "0.16.1",
+    "jscodeshift-add-imports": "^1.0.11",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.20",
+    "@types/jscodeshift": "0.12.0",
+    "@types/node": "^24.0.10",
+    "chai": "^4.5.0",
+    "dayjs": "^1.11.13",
+    "moment-timezone": "^0.6.0",
+    "rimraf": "^6.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
