@@ -148,18 +148,86 @@ const COMPONENT_MAP = {
   Tooltip: 'DsTooltip',
   Typography: 'DsTypography',
   Zoom: 'DsZoom',
+
+  // Charts components
+  AnimatedArea: 'DsAnimatedArea',
+  AnimatedLine: 'DsAnimatedLine',
+  AreaElement: 'DsAreaElement',
+  AreaPlot: 'DsAreaPlot',
+  BarChart: 'DsBarChart',
+  BarElement: 'DsBarElement',
+  BarLabel: 'DsBarLabel',
+  BarPlot: 'DsBarPlot',
+  ChartContainer: 'DsChartContainer',
+  ChartsAxis: 'DsChartsAxis',
+  ChartsAxisHighlight: 'DsChartsAxisHighlight',
+  ChartsClipPath: 'DsChartsClipPath',
+  ChartsGrid: 'DsChartsGrid',
+  ChartsLegend: 'DsChartsLegend',
+  ChartsReferenceLine: 'DsChartsReferenceLine',
+  ChartsSurface: 'DsChartsSurface',
+  ChartsText: 'DsChartsText',
+  ChartsTooltip: 'DsChartsTooltip',
+  ChartsXAxis: 'DsChartsXAxis',
+  ChartsYAxis: 'DsChartsYAxis',
+  ContinuousColorLegend: 'DsContinuousColorLegend',
+  ChartsAxisTooltipContent: 'DsChartsAxisTooltipContent',
+  ChartsItemTooltipContent: 'DsChartsItemTooltipContent',
+  Gauge: 'DsGauge',
+  GaugeContainer: 'DsGaugeContainer',
+  LineChart: 'DsLineChart',
+  LineElement: 'DsLineElement',
+  LineHighlightElement: 'DsLineHighlightElement',
+  LineHighlightPlot: 'DsLineHighlightPlot',
+  LinePlot: 'DsLinePlot',
+  MarkElement: 'DsMarkElement',
+  MarkPlot: 'DsMarkPlot',
+  PieArc: 'DsPieArc',
+  PieArcLabel: 'DsPieArcLabel',
+  PieArcLabelPlot: 'DsPieArcLabelPlot',
+  PieArcPlot: 'DsPieArcPlot',
+  PiecewiseColorLegend: 'DsPiecewiseColorLegend',
+  PieChart: 'DsPieChart',
+  PiePlot: 'DsPiePlot',
+  Scatter: 'DsScatter',
+  ScatterChart: 'DsScatterChart',
+  ScatterPlot: 'DsScatterPlot',
+  SparkLineChart: 'DsSparkLineChart',
+  ResponsiveChartContainer: 'DsResponsiveChartContainer',
+  ChartsOnAxisClickHandler: 'DsChartsOnAxisClickHandler'
 };
 
-const shouldReplaceLiteral = (value) =>
-  typeof value === 'string' && COMPONENT_MAP.hasOwnProperty(value);
+const excludePatterns = [
+  /test/i,
+  /\.(json)$/,                                // Any .json file
+  /(actual|expected|spec)\.(js|jsx|ts|tsx)$/,  // Matches actual.js, expected.tsx, etc.
+];
+
+const getParser = (filePath) => {
+  const ext = path.extname(filePath);
+  return ext === '.ts' || ext === '.tsx'
+    ? require('recast/parsers/typescript')
+    : require('recast/parsers/babel');
+};
+
+const sortedComponentEntries = Object.entries(COMPONENT_MAP).sort(
+  ([a], [b]) => b.length - a.length
+);
 
 const processFile = (filePath) => {
-  const source = fs.readFileSync(filePath, 'utf8');
+  let source = fs.readFileSync(filePath, 'utf8');
+
+  source = source.replace(/(['"`])@mui\/x-charts\1/g, '$1@am92/react-design-system$1');
+  source = source.replace(/(['"`])@mui\/x-date-pickers\1/g, '$1@am92/react-design-system$1');
+  source = source.replace(/(^|\W)@mui(?!\/)/g, (_, p1) => `${p1}@am92`);
+
+  fs.writeFileSync(filePath, source, 'utf8');
+
   let ast;
 
   try {
     ast = recast.parse(source, {
-      parser: require('recast/parsers/babel'),
+      parser: getParser(filePath),
     });
   } catch (err) {
     console.warn(`❌ Skipping (parse error): ${filePath}`);
@@ -171,11 +239,41 @@ const processFile = (filePath) => {
   visit(ast, {
     visitLiteral(path) {
       const { node } = path;
-      if (shouldReplaceLiteral(node.value)) {
-        const newValue = COMPONENT_MAP[node.value];
-        path.replace(b.literal(newValue));
+      if (typeof node.value === 'string') {
+        for (const [from, to] of sortedComponentEntries) {
+          if (node.value === from) {
+            path.replace(b.literal(to));
+            modified = true;
+            break;
+          }
+        }
+      }
+      this.traverse(path);
+    },
+
+    visitJSXIdentifier(path) {
+      const { name } = path.node;
+      if (COMPONENT_MAP.hasOwnProperty(name)) {
+        path.node.name = COMPONENT_MAP[name];
         modified = true;
       }
+      this.traverse(path);
+    },
+
+    visitTemplateLiteral(path) {
+      const { quasis } = path.node;
+
+      quasis.forEach((quasi) => {
+        for (const [from, to] of sortedComponentEntries) {
+          if (quasi.value.raw.includes(from)) {
+            quasi.value.raw = quasi.value.raw.replaceAll(from, to);
+            quasi.value.cooked = quasi.value.raw;
+            modified = true;
+            break;
+          }
+        }
+      });
+
       this.traverse(path);
     },
   });
@@ -186,19 +284,21 @@ const processFile = (filePath) => {
   }
 };
 
+const shouldExclude = (filename) => {
+  return excludePatterns.some((pattern) => pattern.test(filename));
+};
+
 const walk = (dir) => {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
 
-
-  
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
-        if (entry.isDirectory() && entry.name === 'test-cases') {
-          continue;
-        }
+    if (entry.isDirectory() && (entry.name.toLowerCase().includes('test') || entry.name === 'util')) {
+      continue;
+    }
     if (entry.isDirectory()) {
       walk(fullPath);
-    } else if (entry.name.endsWith('.js') || entry.name.endsWith('.ts')) {
+    } else if (!shouldExclude(entry.name)) {
       processFile(fullPath);
     }
   }

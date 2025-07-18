@@ -1,12 +1,12 @@
-import DsAlert from '@mui/material/Alert';
+import Alert from '@mui/material/Alert';
 
-<DsAlert
+<Alert
   slots={{
     closeButton: ComponentsButton
   }}
   slotProps={{ closeButton: componentsButtonProps }}
 />;
-<DsAlert
+<Alert
   slots={{
     closeIcon: SlotsIcon,
     closeButton: ComponentsButton
@@ -15,13 +15,13 @@ import DsAlert from '@mui/material/Alert';
     closeIcon: slotsIconProps,
     closeButton: componentsButtonProps
   }} />;
-<DsAlert
+<Alert
   slots={{ closeIcon: SlotsIcon, closeButton: SlotsButton }}
   slotProps={{ closeIcon: slotsIconProps, closeButton: {
     ...componentsButtonProps,
     ...slotsButtonProps
   } }} />;
-<DsAlert
+<Alert
   slots={{ closeIcon: SlotsIcon, closeButton: SlotsButton }}
   slotProps={{ closeButton: {
     ...componentsButtonProps,

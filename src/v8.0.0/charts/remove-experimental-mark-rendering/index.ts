@@ -1,8 +1,7 @@
-
-import { JsCodeShiftAPI, JsCodeShiftFileInfo } from '../../../types';
 import removeProps from '../../../util/removeProps';
+import { JsCodeShiftAPI, JsCodeShiftFileInfo } from '../../../types';
 
-const componentNames = ['DsLineChart', 'DsMarkPlot'];
+const componentNames = ["DsLineChart", 'LineChartPro', "DsMarkPlot"];
 const props = ['experimentalMarkRendering'];
 
 export default function transformer(file: JsCodeShiftFileInfo, api: JsCodeShiftAPI, options: any) {

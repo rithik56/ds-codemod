@@ -14,7 +14,7 @@ export default function transformer(file, api, options) {
       .find(j.ImportDeclaration)
       .filter((path) =>
         path.node.source.value.match(
-          new RegExp(`^${options.packageName || '@am92/react-design-system'}(/DsImageListItemBar)?$`),
+          new RegExp(`^${options.packageName || '@mui/material'}(/DsImageListItemBar)?$`),
         ),
       )
       .forEach((path) => {

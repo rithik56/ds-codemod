@@ -23,7 +23,7 @@ const classes = [
 
 const plugin = () => {
   return {
-    postcssPlugin: `Replace deprecated InputBase classes with new classes`,
+    postcssPlugin: `Replace deprecated DsInputBase classes with new classes`,
     Rule(rule) {
       const { selector } = rule;
 

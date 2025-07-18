@@ -13,14 +13,14 @@ export default function transformer(file, api, options) {
 
   replaceComponentsWithSlots(j, {
     root,
-    componentName: 'DsAvatarGroup',
+    componentName: "DsAvatarGroup",
     packageName: options.packageName,
   });
 
   // replace `slotProps.additionalAvatar` with `slotProps.surplus` in JSX
   findComponentJSX(
     j,
-    { root, componentName: 'DsAvatarGroup', packageName: options.packageName },
+    { root, componentName: "DsAvatarGroup", packageName: options.packageName },
     (elementPath) => {
       const slotPropsIndex = elementPath.node.openingElement.attributes.findIndex(
         (attr) => attr.type === 'JSXAttribute' && attr.name.name === 'slotProps',

@@ -14,13 +14,13 @@ export default function transformer(file, api, options) {
   replaceComponentsWithSlots(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsListItem',
+    componentName: "DsListItem",
   });
 
   movePropIntoSlots(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsListItem',
+    componentName: "DsListItem",
     propName: 'ContainerComponent',
     slotName: 'root',
   });
@@ -28,7 +28,7 @@ export default function transformer(file, api, options) {
   movePropIntoSlotProps(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsListItem',
+    componentName: "DsListItem",
     propName: 'ContainerProps',
     slotName: 'root',
   });

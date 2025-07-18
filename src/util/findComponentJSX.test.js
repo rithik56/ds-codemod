@@ -16,7 +16,7 @@ describe('@mui/codemod', () => {
           <Accordion3 />;
         `);
 
-        const componentName = "DsAccordion";
+        const componentName = 'Accordion';
         const foundElements = [];
         findComponentJSX(j, { root, componentName }, (path) => {
           foundElements.push(path);
@@ -36,7 +36,7 @@ describe('@mui/codemod', () => {
           <Accordion3 />;
         `);
 
-        const componentName = "DsAccordion";
+        const componentName = 'Accordion';
         const foundElements = [];
         findComponentJSX(j, { root, componentName, packageName: '@org/ui/material' }, (path) => {
           foundElements.push(path);

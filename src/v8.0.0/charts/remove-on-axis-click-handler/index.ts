@@ -19,7 +19,7 @@ export default function transformer(file: JsCodeShiftFileInfo, api: JsCodeShiftA
       (path) =>
         Boolean(path.node.openingElement) &&
         path.node.openingElement.name.type === 'JSXIdentifier' &&
-        path.node.openingElement.name.name.includes('DsChartContainer'),
+        path.node.openingElement.name.name.includes("DsChartContainer"),
     )
     .forEach((path) => {
       // We find the <ChartsOnAxisClickHandler /> node
@@ -30,7 +30,7 @@ export default function transformer(file: JsCodeShiftFileInfo, api: JsCodeShiftA
         if (child.openingElement.name.type !== 'JSXIdentifier') {
           return false;
         }
-        return child.openingElement.name.name === 'DsChartsOnAxisClickHandler';
+        return child.openingElement.name.name === "DsChartsOnAxisClickHandler";
       });
 
       if (!clickHandler) {
@@ -57,14 +57,14 @@ export default function transformer(file: JsCodeShiftFileInfo, api: JsCodeShiftA
         if (child.openingElement.name.type !== 'JSXIdentifier') {
           return true;
         }
-        return child.openingElement.name.name !== 'DsChartsOnAxisClickHandler';
+        return child.openingElement.name.name !== "DsChartsOnAxisClickHandler";
       });
     });
 
   // Remove nested import
-  // root
-  //   .find(j.ImportDeclaration, { source: { value: '@am92/react-design-system' } })
-  //   .remove();
+  root
+    .find(j.ImportDeclaration, { source: { value: '@mui/x-charts/ChartsOnAxisClickHandler' } })
+    .remove();
 
   // Remove global import
   root.find(j.ImportDeclaration).forEach((path) => {
@@ -80,7 +80,7 @@ export default function transformer(file: JsCodeShiftFileInfo, api: JsCodeShiftA
         return true;
       }
 
-      return specifier.imported.name !== 'DsChartsOnAxisClickHandler';
+      return specifier.imported.name !== "DsChartsOnAxisClickHandler";
     });
   });
 

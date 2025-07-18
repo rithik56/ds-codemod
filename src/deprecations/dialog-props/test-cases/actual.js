@@ -1,7 +1,7 @@
-import DsDialog from '@mui/material/Dialog';
-import { DsDialog as DsDialog } from '@mui/material';
+import Dialog from '@mui/material/Dialog';
+import { Dialog as MyDialog } from '@mui/material';
 
-<DsDialog
+<Dialog
   TransitionComponent={CustomTransition}
   TransitionProps={CustomTransitionProps}
   PaperProps={PaperProps}
@@ -11,7 +11,7 @@ import { DsDialog as DsDialog } from '@mui/material';
   TransitionProps={CustomTransitionProps}
   PaperProps={PaperProps}
 />;
-<DsDialog
+<Dialog
   TransitionComponent={CustomTransition}
   TransitionProps={CustomTransitionProps}
   slots={{
@@ -27,7 +27,7 @@ import { DsDialog as DsDialog } from '@mui/material';
   }}
   PaperProps={PaperProps}
 />;
-<DsDialog
+<Dialog
   TransitionComponent={ComponentTransition}
   TransitionProps={CustomTransitionProps}
   slots={{

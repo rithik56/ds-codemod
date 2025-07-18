@@ -7,11 +7,11 @@
  *
  */
 export default function findComponentJSX(j, options, callback) {
-  const { root, componentName, packageName = '@am92/react-design-system' } = options;
+  const { root, componentName, packageName = '@mui/material' } = options;
 
-  // case 1: import ComponentName from '@am92/react-design-system/ComponentName';
-  // case 2: import { ComponentName } from '@am92/react-design-system';
-  // case 3: import { ComponentName as SomethingElse } from '@am92/react-design-system';
+  // case 1: import ComponentName from '@mui/material/ComponentName';
+  // case 2: import { ComponentName } from '@mui/material';
+  // case 3: import { ComponentName as SomethingElse } from '@mui/material';
 
   const importName = new Set();
 

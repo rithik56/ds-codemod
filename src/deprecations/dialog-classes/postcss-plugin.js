@@ -11,7 +11,7 @@ const classes = [
 
 const plugin = () => {
   return {
-    postcssPlugin: `Replace deprecated Dialog classes with new classes`,
+    postcssPlugin: `Replace deprecated DsDialog classes with new classes`,
     Rule(rule) {
       const { selector } = rule;
 

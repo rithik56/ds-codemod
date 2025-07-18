@@ -1,7 +1,7 @@
-import DsAvatar from '@mui/material/Avatar';
-import { DsAvatar as DsAvatar } from '@mui/material';
+import Avatar from '@mui/material/Avatar';
+import { Avatar as MyAvatar } from '@mui/material';
 
-<DsAvatar
+<Avatar
   slotProps={{
     img: {
       onError: () => {},

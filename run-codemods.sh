@@ -17,8 +17,8 @@ codemodScripts=(
   "v6.0.0/list-item-button-prop"
   "v7.0.0/input-label-size-normal-medium"
   "v7.0.0/grid-props"
-  "v7.0.0/preset-safe"
-  "v8.0.0/preset-safe"
+  "v7.0.0/pickers/preset-safe"
+  "v8.0.0/charts/preset-safe"
 )
 
 # Loop through each codemod and execute the Node.js codemod script

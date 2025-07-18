@@ -12,7 +12,7 @@ export default function transformer(file, api, options) {
   replaceComponentsWithSlots(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsFormControlLabel',
+    componentName: "DsFormControlLabel",
   });
 
   return root.toSource(printOptions);

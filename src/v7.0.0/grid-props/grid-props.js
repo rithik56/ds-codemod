@@ -1,6 +1,8 @@
-const possibleDefaultImports = [ '@am92/react-design-system'];
+const possibleDefaultImports = ['@mui/material/Grid', '@mui/system/Grid', '@mui/joy/Grid'];
 const possibleNamedImports = {
-  '@am92/react-design-system': 'DsGrid'
+  '@mui/material': "DsGrid",
+  '@mui/system': "DsGrid",
+  '@mui/joy': "DsGrid",
 };
 
 const defaultBreakpoints = ['xs', 'sm', 'md', 'lg', 'xl'];
@@ -21,7 +23,7 @@ export default function gridV2Props(file, api, options) {
 
   if (packageName) {
     possibleDefaultImports.push(`${packageName}/DsGrid`);
-    possibleNamedImports[packageName] = 'DsGrid';
+    possibleNamedImports[packageName] = "DsGrid";
   }
 
   const gridLocalNames = [];

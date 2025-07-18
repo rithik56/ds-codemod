@@ -14,7 +14,7 @@ export default function transformer(file, api, options) {
 
   findComponentJSX(
     j,
-    { root, componentName: 'DsDivider', packageName: options.packageName },
+    { root, componentName: "DsDivider", packageName: options.packageName },
     (elementPath) => {
       const lightProp = elementPath.node.openingElement.attributes.find(
         (attr) => attr.type === 'JSXAttribute' && attr.name.name === 'light',

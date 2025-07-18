@@ -1,11 +1,11 @@
-import DsTooltip from '@org/ui/material/Tooltip';
-import { DsTooltip as MyTooltip } from '@org/ui/material';
+import Tooltip from '@org/ui/material/Tooltip';
+import { Tooltip as MyTooltip } from '@org/ui/material';
 
-<DsTooltip
+<Tooltip
   components={{
     Arrow: ComponentsArrow,
     Popper: ComponentsPopper,
-    DsTooltip: ComponentsTooltip,
+    Tooltip: ComponentsTooltip,
     Transition: ComponentsTransition
   }}
   componentsProps={{
@@ -15,25 +15,25 @@ import { DsTooltip as MyTooltip } from '@org/ui/material';
     transition: componentsTransitionProps
   }}
 />;
-<DsTooltip
+<Tooltip
   slots={{ tooltip: SlotsTooltip }}
   components={{ Arrow: ComponentsArrow }}
   slotProps={{ tooltip: slotsTooltipProps }}
   componentsProps={{ arrow: componentsArrowProps }}
 />;
-<DsTooltip
+<Tooltip
   slots={{ tooltip: SlotsTooltip, arrow: SlotsArrow }}
   components={{ Arrow: ComponentsArrow }}
   slotProps={{ tooltip: slotsTooltipProps, arrow: slotsArrowProps }}
   componentsProps={{ arrow: componentsArrowProps }}
 />;
-<DsTooltip
+<Tooltip
   slots={{ tooltip: SlotsTooltip, arrow: SlotsArrow }}
   components={{ Arrow: ComponentsArrow }}
   slotProps={{ tooltip: slotsTooltipProps, arrow: slotsArrowProps }}
   componentsProps={{ arrow: componentsArrowProps, tooltip: componentsTooltipProps}}
 />;
-<DsTooltip
+<Tooltip
   slots={{
     arrow: SlotsArrow,
     popper: SlotsPopper,
@@ -43,7 +43,7 @@ import { DsTooltip as MyTooltip } from '@org/ui/material';
   components={{
     Arrow: ComponentsArrow,
     Popper: ComponentsPopper,
-    DsTooltip: ComponentsTooltip,
+    Tooltip: ComponentsTooltip,
     Transition: ComponentsTransition
   }}
   slotProps={{
@@ -60,14 +60,14 @@ import { DsTooltip as MyTooltip } from '@org/ui/material';
   }}
 />;
 
-<DsTooltip
+<Tooltip
   PopperComponent={CustomPopper}
   TransitionComponent={CustomTransition}
   PopperProps={{ disablePortal: true }}
   TransitionProps={{ timeout: 200 }}
 />;
 
-<DsTooltip
+<Tooltip
   PopperComponent={CustomPopper}
   TransitionComponent={CustomTransition}
   PopperProps={{ disablePortal: true }}

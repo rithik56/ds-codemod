@@ -1,9 +1,9 @@
-import DsAccordion from '@mui/material/Accordion';
-import { DsAccordion as DsAccordion } from '@mui/material';
+import Accordion from '@mui/material/Accordion';
+import { Accordion as MyAccordion } from '@mui/material';
 
-<DsAccordion TransitionComponent={CustomTransition} TransitionProps={{ unmountOnExit: true }} />;
+<Accordion TransitionComponent={CustomTransition} TransitionProps={{ unmountOnExit: true }} />;
 <MyAccordion TransitionComponent={CustomTransition} TransitionProps={transitionVars} />;
-<DsAccordion
+<Accordion
   TransitionComponent={CustomTransition}
   TransitionProps={{ unmountOnExit: true }}
   slots={{
@@ -23,8 +23,8 @@ import { DsAccordion as DsAccordion } from '@mui/material';
     ...outerSlotProps,
   }}
 />;
-<DsAccordion TransitionComponent={ComponentTransition} slots={{ transition: SlotTransition }} />;
-<DsAccordion TransitionProps={{ unmountOnExit: true }} slotProps={{ transition: { id: 'test' } }} />;
+<Accordion TransitionComponent={ComponentTransition} slots={{ transition: SlotTransition }} />;
+<Accordion TransitionProps={{ unmountOnExit: true }} slotProps={{ transition: { id: 'test' } }} />;
 // should skip non MUI components
 <NonMuiAccordion
   TransitionComponent={CustomTransition}

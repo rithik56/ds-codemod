@@ -1,7 +1,7 @@
-import DsTextField from '@org/ui/material/TextField';
-import { DsTextField as MyTextField } from '@org/ui/material';
+import TextField from '@org/ui/material/TextField';
+import { TextField as MyTextField } from '@org/ui/material';
 
-<DsTextField
+<TextField
   InputProps={CustomInputProps}
   inputProps={CustomHtmlInputProps}
   SelectProps={CustomSelectProps}

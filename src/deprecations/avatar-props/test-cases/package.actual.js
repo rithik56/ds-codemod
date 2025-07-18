@@ -1,7 +1,7 @@
-import DsAvatar from '@org/ui/material/Avatar';
-import { DsAvatar as MyAvatar } from '@org/ui/material';
+import Avatar from '@org/ui/material/Avatar';
+import { Avatar as MyAvatar } from '@org/ui/material';
 
-<DsAvatar
+<Avatar
   imgProps={{
     onError: () => {},
     onLoad: () => {},

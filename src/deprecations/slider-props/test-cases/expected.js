@@ -1,12 +1,12 @@
-import DsSlider from '@mui/material/Slider';
+import Slider from '@mui/material/Slider';
 
-<DsSlider
+<Slider
   slots={{
     track: ComponentsTrack
   }}
   slotProps={{ track: componentsTrackProps }}
 />;
-<DsSlider
+<Slider
   slots={{
     rail: SlotsRail,
     track: ComponentsTrack
@@ -15,13 +15,13 @@ import DsSlider from '@mui/material/Slider';
     rail: slotsRailProps,
     track: componentsTrackProps
   }} />;
-<DsSlider
+<Slider
   slots={{ rail: SlotsRail, track: SlotsTrack }}
   slotProps={{ rail: slotsRailProps, track: {
     ...componentsTrackProps,
     ...slotsTrackProps
   } }} />;
-<DsSlider
+<Slider
   slots={{ rail: SlotsRail, track: SlotsTrack }}
   slotProps={{ track: {
     ...componentsTrackProps,

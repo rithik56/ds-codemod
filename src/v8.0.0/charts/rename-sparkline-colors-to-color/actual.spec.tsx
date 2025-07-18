@@ -1,7 +1,7 @@
 // @ts-nocheck
 /* eslint-disable no-restricted-imports */
 import * as React from 'react';
-import { SparkLineChart } from '@am92/react-design-system';
+import { SparkLineChart } from '@mui/x-charts';
 
 const data = [1, 2];
 

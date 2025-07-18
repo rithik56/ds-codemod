@@ -14,7 +14,7 @@ export default function transformer(file: JsCodeShiftFileInfo, api: JsCodeShiftA
   renameImports({
     j,
     root,
-    packageNames: ['@am92/react-design-system'],
+    packageNames: ['@am92/react-design-system', '@mui/x-charts-pro'],
     imports: [
       {
         oldEndpoint: 'hooks',

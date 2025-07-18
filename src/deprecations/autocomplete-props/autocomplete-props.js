@@ -18,7 +18,7 @@ export default function transformer(file, api, options) {
   movePropIntoSlots(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsAutocomplete',
+    componentName: "DsAutocomplete",
     propName: 'PaperComponent',
     slotName: 'paper',
   });
@@ -26,7 +26,7 @@ export default function transformer(file, api, options) {
   movePropIntoSlots(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsAutocomplete',
+    componentName: "DsAutocomplete",
     propName: 'PopperComponent',
     slotName: 'popper',
   });
@@ -34,7 +34,7 @@ export default function transformer(file, api, options) {
   movePropIntoSlotProps(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsAutocomplete',
+    componentName: "DsAutocomplete",
     propName: 'ListboxProps',
     slotName: 'listbox',
   });
@@ -42,7 +42,7 @@ export default function transformer(file, api, options) {
   movePropIntoSlotProps(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsAutocomplete',
+    componentName: "DsAutocomplete",
     propName: 'ChipProps',
     slotName: 'chip',
   });
@@ -50,7 +50,7 @@ export default function transformer(file, api, options) {
   replaceComponentsWithSlots(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsAutocomplete',
+    componentName: "DsAutocomplete",
   });
 
   // Move ListboxComponent JSX prop into slotProps.listbox.component
@@ -58,7 +58,6 @@ export default function transformer(file, api, options) {
     j,
     { root, packageName: options.packageName, componentName: "DsAutocomplete" },
     (elementPath) => {
-      
       const element = elementPath.node;
       const propIndex = element.openingElement.attributes.findIndex(
         (attr) => attr.type === 'JSXAttribute' && attr.name.name === 'ListboxComponent',
@@ -115,7 +114,7 @@ export default function transformer(file, api, options) {
   const defaultPropsPathCollection = findComponentDefaultProps(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsAutocomplete',
+    componentName: "DsAutocomplete",
   });
 
   defaultPropsPathCollection

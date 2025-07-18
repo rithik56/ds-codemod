@@ -5,7 +5,7 @@ const MAX_DEPTH = 20;
  * @returns
  */
 export const getCreateBuildStyle = (j) =>
-  (function createBuildStyle(key, upperBuildStyle, applyStylesMode) {
+  function createBuildStyle(key, upperBuildStyle, applyStylesMode) {
     if (applyStylesMode) {
       upperBuildStyle = (styleExpression) =>
         j.objectExpression([
@@ -35,7 +35,7 @@ export const getCreateBuildStyle = (j) =>
       }
       return upperBuildStyle ? upperBuildStyle(styleExpression) : styleExpression;
     };
-  });
+  };
 
 /**
  * @param {import('jscodeshift').API['j']} j
@@ -46,7 +46,7 @@ export const getAppendPaletteModeStyles = (j) =>
    * @param {{ properties: any[] }} node
    * @param {Record<string, any[] | import('jscodeshift').ObjectExpression>} modeStyles
    */
-  (function appendPaletteModeStyles(node, modeStyles) {
+  function appendPaletteModeStyles(node, modeStyles) {
     Object.entries(modeStyles).forEach(([mode, objectStyles]) => {
       node.properties.push(
         j.spreadElement(
@@ -57,7 +57,7 @@ export const getAppendPaletteModeStyles = (j) =>
         ),
       );
     });
-  });
+  };
 
 /**
  *
@@ -109,7 +109,7 @@ export const getBuildArrowFunctionAST = (j) =>
    * @param {import('jscodeshift').BlockStatement} body
    * @returns
    */
-  (function buildArrowFunctionAST(params, body) {
+  function buildArrowFunctionAST(params, body) {
     const destructured = [...params].every((param) => typeof param === 'string');
     return j.arrowFunctionExpression(
       destructured
@@ -124,7 +124,7 @@ export const getBuildArrowFunctionAST = (j) =>
         : params,
       body,
     );
-  });
+  };
 
 /**
  * @param {import('jscodeshift').API['j']} j
@@ -137,7 +137,7 @@ export const getObjectToArrowFunction = (j) => {
      * @param {import('jscodeshift').ObjectExpression} objectExpression
      * @param {import('jscodeshift').BinaryExpression} addtional
      */
-    (function objectToArrowFunction(objectExpression, addtional) {
+    function objectToArrowFunction(objectExpression, addtional) {
       const paramKeys = new Set();
       let left;
       objectExpression.properties.forEach((prop, index) => {
@@ -156,7 +156,7 @@ export const getObjectToArrowFunction = (j) => {
         paramKeys,
         addtional ? j.logicalExpression('&&', left, addtional) : left,
       );
-    })
+    }
   );
 };
 

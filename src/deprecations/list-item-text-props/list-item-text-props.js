@@ -13,13 +13,13 @@ export default function transformer(file, api, options) {
   replaceComponentsWithSlots(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsListItemText',
+    componentName: "DsListItemText",
   });
 
   movePropIntoSlotProps(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsListItemText',
+    componentName: "DsListItemText",
     propName: 'primaryTypographyProps',
     slotName: 'primary',
   });
@@ -27,7 +27,7 @@ export default function transformer(file, api, options) {
   movePropIntoSlotProps(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsListItemText',
+    componentName: "DsListItemText",
     propName: 'secondaryTypographyProps',
     slotName: 'secondary',
   });

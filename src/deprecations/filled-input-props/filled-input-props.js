@@ -12,7 +12,7 @@ export default function transformer(file, api, options) {
   replaceComponentsWithSlots(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsFilledInput',
+    componentName: "DsFilledInput",
   });
 
   return root.toSource(printOptions);

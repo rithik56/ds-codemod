@@ -1,7 +1,7 @@
-import DsAccordion from '@mui/material/Accordion';
-import { DsAccordion as DsAccordion } from '@mui/material';
+import Accordion from '@mui/material/Accordion';
+import { Accordion as MyAccordion } from '@mui/material';
 
-<DsAccordion slots={{
+<Accordion slots={{
   transition: CustomTransition
 }} slotProps={{
   transition: { unmountOnExit: true }
@@ -11,7 +11,7 @@ import { DsAccordion as DsAccordion } from '@mui/material';
 }} slotProps={{
   transition: transitionVars
 }} />;
-<DsAccordion
+<Accordion
   slots={{
     root: 'div',
     transition: CustomTransition
@@ -29,8 +29,8 @@ import { DsAccordion as DsAccordion } from '@mui/material';
     ...outerSlotProps,
     transition: { unmountOnExit: true }
   }} />;
-<DsAccordion slots={{ transition: SlotTransition }} />;
-<DsAccordion
+<Accordion slots={{ transition: SlotTransition }} />;
+<Accordion
   slotProps={{ transition: {
     ...{ unmountOnExit: true },
     ...{ id: 'test' }

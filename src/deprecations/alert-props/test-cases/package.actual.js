@@ -1,22 +1,22 @@
-import DsAlert from '@org/ui/material/Alert';
+import Alert from '@org/ui/material/Alert';
 
-<DsAlert
+<Alert
   components={{ CloseButton: ComponentsButton }}
   componentsProps={{ closeButton: componentsButtonProps }}
 />;
-<DsAlert
+<Alert
   slots={{ closeIcon: SlotsIcon }}
   components={{ CloseButton: ComponentsButton }}
   slotProps={{ closeIcon: slotsIconProps }}
   componentsProps={{ closeButton: componentsButtonProps }}
 />;
-<DsAlert
+<Alert
   slots={{ closeIcon: SlotsIcon, closeButton: SlotsButton }}
   components={{ CloseButton: ComponentsButton }}
   slotProps={{ closeIcon: slotsIconProps, closeButton: slotsButtonProps }}
   componentsProps={{ closeButton: componentsButtonProps }}
 />;
-<DsAlert
+<Alert
   slots={{ closeIcon: SlotsIcon, closeButton: SlotsButton }}
   components={{ CloseButton: ComponentsButton }}
   slotProps={{ closeIcon: slotsIconProps, closeButton: slotsButtonProps }}

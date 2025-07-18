@@ -5,7 +5,7 @@ import {
   unstable_useLineSeries,
   unstable_useBarSeries,
   unstable_useScatterSeries,
-} from '@am92/react-design-system';
+} from '@mui/x-charts';
 import { unstable_useHeatmapSeries } from '@mui/x-charts-pro';
 
 function useThings() {

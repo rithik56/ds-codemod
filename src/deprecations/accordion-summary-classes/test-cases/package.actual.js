@@ -40,7 +40,7 @@ styled(Component)(() => {
   };
 });
 
-<DsAccordionSummary
+<AccordionSummary
   sx={{
     '& .MuiAccordionSummary-contentGutters': {
       color: 'red',
@@ -48,7 +48,7 @@ styled(Component)(() => {
   }}
 />;
 
-<DsAccordionSummary
+<AccordionSummary
   sx={{
     [`& .${accordionSummaryClasses.contentGutters}`]: {
       color: 'red',

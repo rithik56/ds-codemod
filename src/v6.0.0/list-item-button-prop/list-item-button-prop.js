@@ -6,13 +6,10 @@ import findComponentDefaultProps from '../../util/findComponentDefaultProps';
  * @param {import('jscodeshift').API} api
  */
 export default function transformer(file, api, options) {
-  if (file.path?.endsWith('.json') || file.path?.endsWith('.d.ts')) {
-    return file.source;
-  }
   const j = api.jscodeshift;
   const root = j(file.source);
   const printOptions = options.printOptions;
-  const { packageName = '@am92/react-design-system' } = options;
+  const { packageName = '@mui/material' } = options;
 
   const defaultPropsPathCollection = findComponentDefaultProps(j, {
     root,
@@ -68,7 +65,7 @@ export default function transformer(file, api, options) {
     if (index !== -1) {
       openTaggedHavingButtonProp.add(elementPath.node.openingElement.name.name);
       addedListItemButton = true;
-      elementPath.node.openingElement.name.name = `ListItemButton`;
+      elementPath.node.openingElement.name.name = `DsListItemButton`;
       elementPath.node.openingElement.attributes.splice(index, 1);
     } else {
       openTaggedNotHavingButtonProp.add(elementPath.node.openingElement.name.name);
@@ -81,7 +78,7 @@ export default function transformer(file, api, options) {
 
   root
     .find(j.ImportDeclaration)
-    .filter((path) => path.node.source.value.match(new RegExp(`^${packageName}(/ListItem)?$`)))
+    .filter((path) => path.node.source.value.match(new RegExp(`^${packageName}(/DsListItem)?$`)))
     .filter((path) => {
       path.node.specifiers.forEach((specifier) => {
         if (specifier.type === 'ImportDefaultSpecifier') {
@@ -120,7 +117,7 @@ export default function transformer(file, api, options) {
   // If ListItemButton import does not already exist, add it at the end
   const imports = root
     .find(j.ImportDeclaration)
-    .filter((path) => path.node.source.value.match(new RegExp(`^${packageName}/ListItemButton$`)));
+    .filter((path) => path.node.source.value.match(new RegExp(`^${packageName}/DsListItemButton$`)));
 
   if (addedListItemButton && imports.length === 0) {
     const lastImport = root.find(j.ImportDeclaration).at(-1);
@@ -129,7 +126,7 @@ export default function transformer(file, api, options) {
     lastImport.insertAfter(
       j.importDeclaration(
         [j.importDefaultSpecifier(j.identifier("DsListItemButton"))],
-        j.stringLiteral(`${packageName}/ListItemButton`),
+        j.stringLiteral(`${packageName}/DsListItemButton`),
       ),
     );
   }

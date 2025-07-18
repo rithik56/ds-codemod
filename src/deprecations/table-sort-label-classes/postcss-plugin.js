@@ -11,7 +11,7 @@ const classes = [
 
 const plugin = () => {
   return {
-    postcssPlugin: `Replace deprecated TableSortLabel classes with new classes`,
+    postcssPlugin: `Replace deprecated DsTableSortLabel classes with new classes`,
     Rule(rule) {
       const { selector } = rule;
 

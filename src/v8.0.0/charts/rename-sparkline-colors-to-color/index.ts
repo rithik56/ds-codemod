@@ -9,7 +9,7 @@ export default function transformer(file: JsCodeShiftFileInfo, api: JsCodeShiftA
   const printOptions = options.printOptions;
 
   const root = j(file.source);
-  const componentNames = ['DsSparkLineChart'];
+  const componentNames = ["DsSparkLineChart"];
   const props = { colors: 'color' };
 
   const colorAttributes = root

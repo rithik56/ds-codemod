@@ -13,14 +13,14 @@ export default function transformer(file, api, options) {
   movePropIntoSlots(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsDrawer',
+    componentName: "DsDrawer",
     propName: 'BackdropComponent',
     slotName: 'backdrop',
   });
   movePropIntoSlots(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsSwipeableDrawer',
+    componentName: "DsSwipeableDrawer",
     propName: 'BackdropComponent',
     slotName: 'backdrop',
   });
@@ -28,14 +28,14 @@ export default function transformer(file, api, options) {
   movePropIntoSlotProps(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsDrawer',
+    componentName: "DsDrawer",
     propName: 'BackdropProps',
     slotName: 'backdrop',
   });
   movePropIntoSlotProps(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsSwipeableDrawer',
+    componentName: "DsSwipeableDrawer",
     propName: 'BackdropProps',
     slotName: 'backdrop',
   });
@@ -43,14 +43,14 @@ export default function transformer(file, api, options) {
   movePropIntoSlotProps(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsDrawer',
+    componentName: "DsDrawer",
     propName: 'PaperProps',
     slotName: 'paper',
   });
   movePropIntoSlotProps(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsSwipeableDrawer',
+    componentName: "DsSwipeableDrawer",
     propName: 'PaperProps',
     slotName: 'paper',
   });
@@ -58,14 +58,14 @@ export default function transformer(file, api, options) {
   movePropIntoSlotProps(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsDrawer',
+    componentName: "DsDrawer",
     propName: 'SlideProps',
     slotName: 'transition',
   });
   movePropIntoSlotProps(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsSwipeableDrawer',
+    componentName: "DsSwipeableDrawer",
     propName: 'SlideProps',
     slotName: 'transition',
   });

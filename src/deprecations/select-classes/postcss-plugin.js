@@ -15,7 +15,7 @@ const classes = [
 
 const plugin = () => {
   return {
-    postcssPlugin: `Replace deprecated Select classes with new classes`,
+    postcssPlugin: `Replace deprecated DsSelect classes with new classes`,
     Rule(rule) {
       const { selector } = rule;
 

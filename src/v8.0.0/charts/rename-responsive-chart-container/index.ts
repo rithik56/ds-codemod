@@ -14,13 +14,20 @@ export default function transformer(file: JsCodeShiftFileInfo, api: JsCodeShiftA
   renameImports({
     j,
     root,
-    packageNames: ['@am92/react-design-system'],
+    packageNames: ['@am92/react-design-system', '@mui/x-charts-pro'],
     imports: [
       {
-        oldEndpoint: 'DsResponsiveChartContainer',
-        newEndpoint: 'DsChartContainer',
+        oldEndpoint: "DsResponsiveChartContainer",
+        newEndpoint: "DsChartContainer",
         importsMapping: {
-          DsResponsiveChartContainer: 'DsChartContainer',
+          ResponsiveChartContainer: "DsChartContainer",
+        },
+      },
+      {
+        oldEndpoint: 'ResponsiveChartContainerPro',
+        newEndpoint: 'ChartContainerPro',
+        importsMapping: {
+          ResponsiveChartContainerPro: 'ChartContainerPro',
         },
       },
     ],

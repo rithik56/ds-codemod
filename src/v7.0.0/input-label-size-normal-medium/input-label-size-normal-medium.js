@@ -3,9 +3,6 @@
  * @param {import('jscodeshift').API} api
  */
 export default function transformer(file, api, options) {
-  if (file.path?.endsWith('.json') || file.path?.endsWith('.d.ts')) {
-    return file.source;
-  }
   const j = api.jscodeshift;
 
   const printOptions = options.printOptions;

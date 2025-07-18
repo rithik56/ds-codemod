@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-imports */
 import * as React from 'react';
-import { ChartContainer } from '@am92/react-design-system';
+import { ChartContainer } from '@mui/x-charts';
 import { BarPlot, ChartContainerPro } from '@mui/x-charts-pro';
 
 <div>

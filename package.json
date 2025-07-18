@@ -1,8 +1,11 @@
 {
-  "name": "@am92-react-design-system/codemod",
-  "version": "7.1.1",
+  "name": "ds-codemod",
+  "version": "1.0.1",
   "author": "React Design System Team",
   "description": "Codemod scripts for React Design System",
+  "bin": {
+    "ds-codemod": "./codemod.js"
+  },
   "keywords": [
     "react",
     "react-component",
@@ -10,12 +13,7 @@
     "codemod",
     "jscodeshift"
   ],
-  "scripts": {
-    "codemod": "./codemod.js"
-  },
   "license": "MIT",
-  "repository": "git@github.com:heliumtank92/am92-ds-codemod.git",
-  "homepage": "https://heliumtank92.github.io/am92-ds-codemod",
   "dependencies": {
     "@babel/core": "^7.27.4",
     "@babel/runtime": "^7.27.6",

@@ -1,13 +1,13 @@
-import DsAccordion from '@org/ui/material/Accordion';
-import { DsAccordion as MyAccordion } from '@org/ui/material';
+import Accordion from '@org/ui/material/Accordion';
+import { Accordion as MyAccordion } from '@org/ui/material';
 
-<DsAccordion TransitionProps={{ unmountOnExit: true }} slots={{
+<Accordion TransitionProps={{ unmountOnExit: true }} slots={{
   transition: CustomTransition
 }} />;
 <MyAccordion TransitionProps={transitionVars} slots={{
   transition: CustomTransition
 }} />;
-<DsAccordion
+<Accordion
   TransitionProps={{ unmountOnExit: true }}
   slots={{
     root: 'div',
@@ -25,8 +25,8 @@ import { DsAccordion as MyAccordion } from '@org/ui/material';
   slotProps={{
     ...outerSlotProps,
   }} />;
-<DsAccordion slots={{ transition: SlotTransition }} />;
-<DsAccordion TransitionProps={{ unmountOnExit: true }} slotProps={{ transition: { id: 'test' } }} />;
+<Accordion slots={{ transition: SlotTransition }} />;
+<Accordion TransitionProps={{ unmountOnExit: true }} slotProps={{ transition: { id: 'test' } }} />;
 // should skip non MUI components
 <NonMuiAccordion
   TransitionComponent={CustomTransition}

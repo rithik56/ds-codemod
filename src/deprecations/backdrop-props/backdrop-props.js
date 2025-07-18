@@ -13,13 +13,13 @@ export default function transformer(file, api, options) {
   replaceComponentsWithSlots(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsBackdrop',
+    componentName: "DsBackdrop",
   });
 
   movePropIntoSlots(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsBackdrop',
+    componentName: "DsBackdrop",
     propName: 'TransitionComponent',
     slotName: 'transition',
   });

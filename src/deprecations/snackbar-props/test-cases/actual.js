@@ -1,7 +1,7 @@
-import DsSnackbar from '@mui/material/Snackbar';
-import { DsSnackbar as DsSnackbar } from '@mui/material';
+import Snackbar from '@mui/material/Snackbar';
+import { Snackbar as MySnackbar } from '@mui/material';
 
-<DsSnackbar
+<Snackbar
   ClickAwayListenerProps={CustomListenerProps}
   ContentProps={CustomContentProps}
   TransitionComponent={CustomTransition}
@@ -13,7 +13,7 @@ import { DsSnackbar as DsSnackbar } from '@mui/material';
   TransitionComponent={CustomTransition}
   TransitionProps={CustomTransitionProps}
 />;
-<DsSnackbar
+<Snackbar
   ClickAwayListenerProps={CustomListenerProps}
   ContentProps={CustomContentProps}
   TransitionComponent={CustomTransition}
@@ -31,7 +31,7 @@ import { DsSnackbar as DsSnackbar } from '@mui/material';
     ...outerSlots,
   }}
 />;
-<DsSnackbar
+<Snackbar
   ClickAwayListenerProps={CustomListenerProps}
   ContentProps={CustomContentProps}
   TransitionComponent={ComponentTransition}

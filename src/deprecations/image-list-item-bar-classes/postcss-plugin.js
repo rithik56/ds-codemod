@@ -21,7 +21,7 @@ const classes = [
 
 const plugin = () => {
   return {
-    postcssPlugin: `Replace deprecated ImageListItemBar classes with new classes`,
+    postcssPlugin: `Replace deprecated DsImageListItemBar classes with new classes`,
     Rule(rule) {
       const { selector } = rule;
 

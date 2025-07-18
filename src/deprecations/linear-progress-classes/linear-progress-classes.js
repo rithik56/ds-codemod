@@ -15,7 +15,7 @@ export default function transformer(file, api, options) {
       .find(j.ImportDeclaration)
       .filter((path) =>
         path.node.source.value.match(
-          new RegExp(`^${options.packageName || '@am92/react-design-system'}(/DsLinearProgress)?$`),
+          new RegExp(`^${options.packageName || '@mui/material'}(/DsLinearProgress)?$`),
         ),
       )
       .forEach((path) => {

@@ -1,7 +1,7 @@
-import DsTooltip from '@mui/material/Tooltip';
-import { DsTooltip as DsTooltip } from '@mui/material';
+import Tooltip from '@mui/material/Tooltip';
+import { Tooltip as MyTooltip } from '@mui/material';
 
-<DsTooltip
+<Tooltip
   slots={{
     arrow: ComponentsArrow,
     popper: ComponentsPopper,
@@ -15,7 +15,7 @@ import { DsTooltip as DsTooltip } from '@mui/material';
     transition: componentsTransitionProps
   }}
 />;
-<DsTooltip
+<Tooltip
   slots={{
     tooltip: SlotsTooltip,
     arrow: ComponentsArrow
@@ -24,13 +24,13 @@ import { DsTooltip as DsTooltip } from '@mui/material';
     tooltip: slotsTooltipProps,
     arrow: componentsArrowProps
   }} />;
-<DsTooltip
+<Tooltip
   slots={{ tooltip: SlotsTooltip, arrow: SlotsArrow }}
   slotProps={{ tooltip: slotsTooltipProps, arrow: {
     ...componentsArrowProps,
     ...slotsArrowProps
   } }} />;
-<DsTooltip
+<Tooltip
   slots={{ tooltip: SlotsTooltip, arrow: SlotsArrow }}
   slotProps={{ arrow: {
     ...componentsArrowProps,
@@ -39,7 +39,7 @@ import { DsTooltip as DsTooltip } from '@mui/material';
     ...componentsTooltipProps,
     ...slotsTooltipProps
   } }} />;
-<DsTooltip
+<Tooltip
   slots={{
     arrow: SlotsArrow,
     popper: SlotsPopper,
@@ -65,7 +65,7 @@ import { DsTooltip as DsTooltip } from '@mui/material';
     }
   }} />;
 
-<DsTooltip
+<Tooltip
   slots={{
     popper: CustomPopper,
     transition: CustomTransition
@@ -75,7 +75,7 @@ import { DsTooltip as DsTooltip } from '@mui/material';
     transition: { timeout: 200 }
   }} />;
 
-<DsTooltip
+<Tooltip
   slotProps={{
     tooltip: { height: 20 },
     popper: { disablePortal: true },

@@ -1,13 +1,13 @@
-import DsMenu from '@mui/material/Menu';
-import { DsMenu as DsMenu } from '@mui/material';
+import Menu from '@mui/material/Menu';
+import { Menu as MyMenu } from '@mui/material';
 
-<DsMenu
+<Menu
   TransitionComponent={CustomTransition}
   MenuListProps={{ disablePadding: true }}
   TransitionProps={{ timeout: 200 }}
 />;
 
-<DsMenu
+<Menu
   TransitionComponent={CustomTransition}
   MenuListProps={{ disablePadding: true }}
   TransitionProps={{ timeout: 200 }}
@@ -18,7 +18,7 @@ import { DsMenu as DsMenu } from '@mui/material';
   }}
 />;
 
-<DsMenu
+<Menu
   TransitionComponent={CustomTransition}
   MenuListProps={{ disablePadding: true }}
   TransitionProps={{ timeout: 200 }}

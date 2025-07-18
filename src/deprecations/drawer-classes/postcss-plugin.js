@@ -35,7 +35,7 @@ const classes = [
 
 const plugin = () => {
   return {
-    postcssPlugin: `Replace deprecated Drawer classes with new classes`,
+    postcssPlugin: `Replace deprecated DsDrawer classes with new classes`,
     Rule(rule) {
       const { selector } = rule;
 

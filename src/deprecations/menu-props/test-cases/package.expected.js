@@ -1,7 +1,7 @@
-import DsMenu from '@org/ui/material/Menu';
-import { DsMenu as MyMenu } from '@org/ui/material';
+import Menu from '@org/ui/material/Menu';
+import { Menu as MyMenu } from '@org/ui/material';
 
-<DsMenu
+<Menu
   slotProps={{
     list: { disablePadding: true },
     transition: { timeout: 200 }
@@ -10,7 +10,7 @@ import { DsMenu as MyMenu } from '@org/ui/material';
     transition: CustomTransition
   }} />;
 
-<DsMenu
+<Menu
   slotProps={{
     root: {
       disablePortal: true,
@@ -23,7 +23,7 @@ import { DsMenu as MyMenu } from '@org/ui/material';
     transition: CustomTransition
   }} />;
 
-<DsMenu
+<Menu
   slotProps={{
     root: {
       disablePortal: true,

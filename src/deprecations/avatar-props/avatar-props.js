@@ -11,7 +11,7 @@ export default function transformer(file, api, options) {
 
   movePropIntoSlotProps(j, {
     root,
-    componentName: 'DsAvatar',
+    componentName: "DsAvatar",
     propName: 'imgProps',
     slotName: 'img',
     packageName: options.packageName,

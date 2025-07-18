@@ -129,7 +129,7 @@ const defaultSxConfig = {
   typography: {},
 };
 const systemProps = Object.keys(defaultSxConfig);
-const components = ['DsBox', 'DsStack', 'DsTypography', 'DsLink', 'DsGrid'];
+const components = ["DsBox", "DsStack", "DsTypography", "DsLink", "DsGrid", 'Grid2'];
 
 /**
  * @param {import('jscodeshift').FileInfo} file
@@ -145,13 +145,13 @@ export default function removeSystemProps(file, api, options) {
 
   const deprecatedElements = [];
   const customReplacement = {
-    DsTypography: {
+    Typography: {
       matcher: (key, val) =>
         key !== 'color' ||
         (val.value?.includes('.') && val.value !== 'inherit') ||
         val.value === 'divider' ||
-        val.value?.startsWith('#') ||
-        val.value?.match(/\(.*\)/),
+        val.value.startsWith('#') ||
+        val.value.match(/\(.*\)/),
     },
     Link: {
       matcher: (key) => key !== 'color',
@@ -160,7 +160,7 @@ export default function removeSystemProps(file, api, options) {
   const elementReplacement = {};
 
   root
-    .find(j.ImportDeclaration, (decl) => decl.source.value.includes('@am92/react-design-system'))
+    .find(j.ImportDeclaration, (decl) => decl.source.value.includes('@am92'))
     .forEach((decl) => {
       decl.node.specifiers.forEach((spec) => {
         if (spec.type === 'ImportSpecifier') {
@@ -249,43 +249,43 @@ export default function removeSystemProps(file, api, options) {
           existingSxValue.elements = [sx, ...existingSxValue.elements];
           finalSx = existingSxValue;
         } else {
-          // finalSx = j.arrayExpression([
-          //   sx,
-          //   existingSxValue.type === 'Identifier'
-          //     ? j.spreadElement(
-          //         j.conditionalExpression(
-          //           j.callExpression(
-          //             j.memberExpression(j.identifier('Array'), j.identifier('isArray')),
-          //             [existingSxValue],
-          //           ),
-          //           existingSxValue,
-          //           j.arrayExpression([existingSxValue]),
-          //         ),
-          //       )
-          //     : existingSxValue,
-          // ]);
+          finalSx = j.arrayExpression([
+            sx,
+            existingSxValue.type === 'Identifier'
+              ? j.spreadElement(
+                  j.conditionalExpression(
+                    j.callExpression(
+                      j.memberExpression(j.identifier('Array'), j.identifier('isArray')),
+                      [existingSxValue],
+                    ),
+                    existingSxValue,
+                    j.arrayExpression([existingSxValue]),
+                  ),
+                )
+              : existingSxValue,
+          ]);
         }
 
-        // if (spreadElement && spreadElement.argument.type === 'Identifier') {
-        //   if (finalSx.type === 'ObjectExpression') {
-        //     const propSx = j.memberExpression(spreadElement.argument, j.identifier('sx'));
-        //     finalSx = j.arrayExpression([
-        //       finalSx,
-        //       j.spreadElement(
-        //         j.conditionalExpression(
-        //           j.callExpression(
-        //             j.memberExpression(j.identifier('Array'), j.identifier('isArray')),
-        //             [propSx],
-        //           ),
-        //           propSx,
-        //           j.arrayExpression([propSx]),
-        //         ),
-        //       ),
-        //     ]);
-        //   } else if (finalSx.type === 'ArrayExpression') {
-        //     finalSx.elements.push(j.memberExpression(spreadElement.argument, j.identifier('sx')));
-        //   }
-        // }
+        if (spreadElement && spreadElement.argument.type === 'Identifier') {
+          if (finalSx.type === 'ObjectExpression') {
+            const propSx = j.memberExpression(spreadElement.argument, j.identifier('sx'));
+            finalSx = j.arrayExpression([
+              finalSx,
+              j.spreadElement(
+                j.conditionalExpression(
+                  j.callExpression(
+                    j.memberExpression(j.identifier('Array'), j.identifier('isArray')),
+                    [propSx],
+                  ),
+                  propSx,
+                  j.arrayExpression([propSx]),
+                ),
+              ),
+            ]);
+          } else if (finalSx.type === 'ArrayExpression') {
+            finalSx.elements.push(j.memberExpression(spreadElement.argument, j.identifier('sx')));
+          }
+        }
 
         el.node.openingElement.attributes.push(
           j.jsxAttribute(j.jsxIdentifier('sx'), j.jsxExpressionContainer(finalSx)),

@@ -12,7 +12,7 @@ export default function transformer(file, api, options) {
   movePropIntoSlotProps(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsCardHeader',
+    componentName: "DsCardHeader",
     propName: 'titleTypographyProps',
     slotName: 'title',
   });
@@ -20,7 +20,7 @@ export default function transformer(file, api, options) {
   movePropIntoSlotProps(j, {
     root,
     packageName: options.packageName,
-    componentName: 'DsCardHeader',
+    componentName: "DsCardHeader",
     propName: 'subheaderTypographyProps',
     slotName: 'subheader',
   });

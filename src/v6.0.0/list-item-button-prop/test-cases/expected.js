@@ -1,6 +1,6 @@
 import ListItem from "@mui/material/ListItem";
 import { ListItem as MyListItem } from "@mui/material";
-import { DsButton } from "@mui/material";
+import { Button } from "@mui/material";
 import { ListItem as MyListItem3, List } from "@mui/material";
 import AnotherComponent from "ui";
 
