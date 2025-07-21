@@ -24,6 +24,13 @@ export default function transformer(file, api, options) {
     propName: 'BackdropComponent',
     slotName: 'backdrop',
   });
+  movePropIntoSlots(j, {
+    root,
+    packageName: options.packageName,
+    componentName: "DsBottomSheet",
+    propName: 'BackdropComponent',
+    slotName: 'backdrop',
+  });
 
   movePropIntoSlotProps(j, {
     root,
@@ -36,6 +43,13 @@ export default function transformer(file, api, options) {
     root,
     packageName: options.packageName,
     componentName: "DsSwipeableDrawer",
+    propName: 'BackdropProps',
+    slotName: 'backdrop',
+  });
+  movePropIntoSlotProps(j, {
+    root,
+    packageName: options.packageName,
+    componentName: "DsBottomSheet",
     propName: 'BackdropProps',
     slotName: 'backdrop',
   });
@@ -51,6 +65,13 @@ export default function transformer(file, api, options) {
     root,
     packageName: options.packageName,
     componentName: "DsSwipeableDrawer",
+    propName: 'PaperProps',
+    slotName: 'paper',
+  });
+  movePropIntoSlotProps(j, {
+    root,
+    packageName: options.packageName,
+    componentName: "DsBottomSheet",
     propName: 'PaperProps',
     slotName: 'paper',
   });
@@ -66,6 +87,13 @@ export default function transformer(file, api, options) {
     root,
     packageName: options.packageName,
     componentName: "DsSwipeableDrawer",
+    propName: 'SlideProps',
+    slotName: 'transition',
+  });
+  movePropIntoSlotProps(j, {
+    root,
+    packageName: options.packageName,
+    componentName: "DsBottomSheet",
     propName: 'SlideProps',
     slotName: 'transition',
   });

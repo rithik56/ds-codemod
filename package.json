@@ -1,11 +1,16 @@
 {
   "name": "ds-codemod",
-  "version": "1.0.1",
-  "author": "React Design System Team",
+  "version": "1.0.2",
+  "author": "Rithik Agarwal",
   "description": "Codemod scripts for React Design System",
   "bin": {
     "ds-codemod": "./codemod.js"
   },
+  "files": [
+    "src",
+    "codemod.js",
+    "README.md"
+  ],
   "keywords": [
     "react",
     "react-component",
@@ -13,6 +18,16 @@
     "codemod",
     "jscodeshift"
   ],
+  "scripts": {
+    "codemod": "./codemod.js",
+    "rename": "./mui-rename.js",
+    "build": "tsc",
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run clean && npm run build",
+    "publish:patch": "npm version patch && npm publish",
+    "publish:minor": "npm version minor && npm publish",
+    "publish:major": "npm version major && npm publish"
+  },
   "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.27.4",
@@ -27,12 +42,15 @@
   },
   "devDependencies": {
     "@types/chai": "^4.3.20",
+    "@types/jest": "^30.0.0",
     "@types/jscodeshift": "0.12.0",
+    "@types/mocha": "^10.0.10",
     "@types/node": "^24.0.10",
     "chai": "^4.5.0",
     "dayjs": "^1.11.13",
     "moment-timezone": "^0.6.0",
-    "rimraf": "^6.0.1"
+    "rimraf": "^6.0.1",
+    "typescript": "^5.8.3"
   },
   "publishConfig": {
     "access": "public"
