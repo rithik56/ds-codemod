@@ -33,7 +33,7 @@ function main() {
     console.log(`🚀 Running codemod: ${codemod} on ${targetPath}`);
 
     try {
-      run(`npm run codemod "${codemod}" "${targetPath}"`);
+      run(`npm run ds-codemod "${codemod}" "${targetPath}"`);
       console.log(`✅ Finished codemod: ${codemod}`);
     } catch (err) {
       console.error(`❌ Codemod ${codemod} failed. Stopping the script.`);

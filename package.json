@@ -21,7 +21,7 @@
     "jscodeshift"
   ],
   "scripts": {
-    "codemod": "./codemod.js",
+    "ds-codemod": "./codemod.js",
     "all-codemods": "./run-codemods.js",
     "rename": "./mui-rename.js",
     "build": "tsc",
