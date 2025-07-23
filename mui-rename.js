@@ -199,7 +199,7 @@ const COMPONENT_MAP = {
 
 const excludePatterns = [
   /test/i,
-  /\.(json)$/,                                // Any .json file
+  /\.json$/i,                       // Any .json file
   /(actual|expected|spec)\.(js|jsx|ts|tsx)$/,  // Matches actual.js, expected.tsx, etc.
 ];
 

@@ -1,6 +1,6 @@
 {
   "name": "ds-codemod",
-  "version": "1.0.6",
+  "version": "1.0.2",
   "author": "Rithik Agarwal",
   "description": "Codemod scripts for React Design System",
   "bin": {
@@ -20,6 +20,7 @@
   ],
   "scripts": {
     "codemod": "./codemod.js",
+    "all-codemods": "./run-codemods.js",
     "rename": "./mui-rename.js",
     "build": "tsc",
     "clean": "rimraf dist",

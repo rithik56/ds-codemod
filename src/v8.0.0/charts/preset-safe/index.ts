@@ -12,6 +12,9 @@ import transformReplaceLegendHiddenSlotProp from '../replace-legend-hidden-slot-
 import { JsCodeShiftAPI, JsCodeShiftFileInfo } from '../../../types';
 
 export default function transformer(file: JsCodeShiftFileInfo, api: JsCodeShiftAPI, options: any) {
+  if (file.path?.endsWith('.json') || file.path?.endsWith('.d.ts')) {
+    return file.source;
+  }
   file.source = transformLegendToSlots(file, api, options);
   file.source = transformRemoveResponsiveContainer(file, api, options);
   file.source = transformRenameLabelAndTickFontSize(file, api, options);

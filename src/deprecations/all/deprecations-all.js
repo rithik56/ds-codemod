@@ -56,6 +56,9 @@ import transformTypographyProps from '../typography-props';
  * @param {import('jscodeshift').API} api
  */
 export default function deprecationsAll(file, api, options) {
+  if (file.path?.endsWith('.json') || file.path?.endsWith('.d.ts')) {
+    return file.source;
+  }
   file.source = transformAccordionClasses(file, api, options);
   file.source = transformAccordionProps(file, api, options);
   file.source = transformAlertClasses(file, api, options);

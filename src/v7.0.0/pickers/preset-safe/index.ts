@@ -6,6 +6,9 @@ import transformRenameSlotsTypes from '../rename-slots-types';
 import { JsCodeShiftAPI, JsCodeShiftFileInfo } from '../../../types';
 
 export default function transformer(file: JsCodeShiftFileInfo, api: JsCodeShiftAPI, options: any) {
+  if (file.path?.endsWith('.json') || file.path?.endsWith('.d.ts')) {
+    return file.source;
+  }
   file.source = transformRenameComponentsToSlots(file, api, options);
   file.source = transformRenameDefaultCalendarMonthToReferenceDate(file, api, options);
   file.source = transformRenameDayPickerClasses(file, api, options);

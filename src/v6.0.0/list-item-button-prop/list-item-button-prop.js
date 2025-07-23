@@ -6,6 +6,9 @@ import findComponentDefaultProps from '../../util/findComponentDefaultProps';
  * @param {import('jscodeshift').API} api
  */
 export default function transformer(file, api, options) {
+  if (file.path?.endsWith('.json') || file.path?.endsWith('.d.ts')) {
+    return file.source;
+  }
   const j = api.jscodeshift;
   const root = j(file.source);
   const printOptions = options.printOptions;

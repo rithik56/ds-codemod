@@ -21,14 +21,14 @@
       "jscodeshift"
     ]
   },
-"include": [
-  "src/**/*.ts"
-],
-"exclude": [
-  "**/*.test.{js,ts}",
-  "src/**/actual*.{js,ts}",
-  "testUtils/**/*",
-  "src/v7.0.0/**/*.test.ts",
-  "src/v8.0.0/**/*.test.ts"
-]
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "**/*.test.{js,ts}",
+    "src/**/actual*.{js,ts}",
+    "testUtils/**/*",
+    "src/**/*test.ts",
+    "src/**/rename-package.ts"
+  ]
 }
