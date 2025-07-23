@@ -4,7 +4,8 @@
   "author": "Rithik Agarwal",
   "description": "Codemod scripts for React Design System",
   "bin": {
-    "ds-codemod": "./codemod.js"
+    "ds-codemod": "./codemod.js",
+    "all-codemods": "./run-codemods.js"
   },
   "files": [
     "src",
