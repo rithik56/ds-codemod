@@ -10,6 +10,7 @@
   "files": [
     "src",
     "codemod.js",
+    "run-codemods.js",
     "README.md"
   ],
   "keywords": [
