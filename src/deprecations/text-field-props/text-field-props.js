@@ -22,7 +22,7 @@ export default function transformer(file, api, options) {
     packageName: options.packageName,
     componentName: "DsTextField",
     propName: 'inputProps',
-    slotName: 'htmlInput',
+    slotName: 'input',
   });
 
   movePropIntoSlotProps(j, {

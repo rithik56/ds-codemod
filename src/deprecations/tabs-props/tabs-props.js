@@ -15,14 +15,14 @@ export default function transformer(file, api, options) {
     packageName: options.packageName,
     componentName: "DsTabs",
     propName: 'ScrollButtonComponent',
-    slotName: 'scrollButton',
+    slotName: 'scrollButtons',
   });
   movePropIntoSlotProps(j, {
     root,
     packageName: options.packageName,
     componentName: "DsTabs",
     propName: 'TabScrollButtonProps',
-    slotName: 'scrollButton',
+    slotName: 'scrollButtons',
   });
 
   movePropIntoSlotProps(j, {
