@@ -1,4 +1,4 @@
-import movePropIntoSlotProps from '../utils/movePropIntoSlotProps';
+import replaceComponentsWithSlots from '../utils/replaceComponentsWithSlots';
 
 /**
  * @param {import('jscodeshift').FileInfo} file
