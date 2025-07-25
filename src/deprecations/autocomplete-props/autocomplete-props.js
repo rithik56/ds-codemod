@@ -22,11 +22,25 @@ export default function transformer(file, api, options) {
     propName: 'PaperComponent',
     slotName: 'paper',
   });
+  movePropIntoSlots(j, {
+    root,
+    packageName: options.packageName,
+    componentName: "DsSearchbar",
+    propName: 'PaperComponent',
+    slotName: 'paper',
+  });
 
   movePropIntoSlots(j, {
     root,
     packageName: options.packageName,
     componentName: "DsAutocomplete",
+    propName: 'PopperComponent',
+    slotName: 'popper',
+  });
+  movePropIntoSlots(j, {
+    root,
+    packageName: options.packageName,
+    componentName: "DsSearchbar",
     propName: 'PopperComponent',
     slotName: 'popper',
   });
@@ -38,11 +52,25 @@ export default function transformer(file, api, options) {
     propName: 'ListboxProps',
     slotName: 'listbox',
   });
+  movePropIntoSlotProps(j, {
+    root,
+    packageName: options.packageName,
+    componentName: "DsSearchbar",
+    propName: 'ListboxProps',
+    slotName: 'listbox',
+  });
 
   movePropIntoSlotProps(j, {
     root,
     packageName: options.packageName,
     componentName: "DsAutocomplete",
+    propName: 'ChipProps',
+    slotName: 'chip',
+  });
+  movePropIntoSlotProps(j, {
+    root,
+    packageName: options.packageName,
+    componentName: "DsSearchbar",
     propName: 'ChipProps',
     slotName: 'chip',
   });
@@ -52,11 +80,71 @@ export default function transformer(file, api, options) {
     packageName: options.packageName,
     componentName: "DsAutocomplete",
   });
+  replaceComponentsWithSlots(j, {
+    root,
+    packageName: options.packageName,
+    componentName: "DsSearchbar",
+  });
 
   // Move ListboxComponent JSX prop into slotProps.listbox.component
   findComponentJSX(
     j,
     { root, packageName: options.packageName, componentName: "DsAutocomplete" },
+    (elementPath) => {
+      const element = elementPath.node;
+      const propIndex = element.openingElement.attributes.findIndex(
+        (attr) => attr.type === 'JSXAttribute' && attr.name.name === 'ListboxComponent',
+      );
+
+      if (propIndex !== -1) {
+        const removedValue = element.openingElement.attributes.splice(propIndex, 1)[0].value
+          .expression;
+        let hasSlotProps = false;
+        element.openingElement.attributes.forEach((attr) => {
+          if (attr.name?.name === 'slotProps') {
+            hasSlotProps = true;
+            const slots = attr.value.expression;
+            const slotIndex = slots.properties.findIndex((prop) => prop?.key?.name === 'listbox');
+            if (slotIndex === -1) {
+              assignObject(j, {
+                target: attr,
+                key: 'listbox',
+                expression: j.objectExpression([
+                  j.objectProperty(j.identifier('component'), removedValue),
+                ]),
+              });
+            } else {
+              const slotPropsSlotValue = slots.properties.splice(slotIndex, 1)[0].value;
+              assignObject(j, {
+                target: attr,
+                key: 'listbox',
+                expression: j.objectExpression([
+                  j.objectProperty(j.identifier('component'), removedValue),
+                  j.spreadElement(slotPropsSlotValue),
+                ]),
+              });
+            }
+          }
+        });
+
+        if (!hasSlotProps) {
+          appendAttribute(j, {
+            target: element,
+            attributeName: 'slotProps',
+            expression: j.objectExpression([
+              j.objectProperty(
+                j.identifier('listbox'),
+                j.objectExpression([j.objectProperty(j.identifier('component'), removedValue)]),
+              ),
+            ]),
+          });
+        }
+      }
+    },
+  );
+  findComponentJSX(
+    j,
+    { root, packageName: options.packageName, componentName: "DsSearchbar" },
     (elementPath) => {
       const element = elementPath.node;
       const propIndex = element.openingElement.attributes.findIndex(

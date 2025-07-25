@@ -9,45 +9,7 @@ export default function transformer(file, api, options) {
   const root = j(file.source);
   const printOptions = options.printOptions;
 
-  movePropIntoSlotProps(j, {
-    root,
-    packageName: options.packageName,
-    componentName: "DsTextField",
-    propName: 'InputProps',
-    slotName: 'input',
-  });
-
-  movePropIntoSlotProps(j, {
-    root,
-    packageName: options.packageName,
-    componentName: "DsTextField",
-    propName: 'inputProps',
-    slotName: 'input',
-  });
-
-  movePropIntoSlotProps(j, {
-    root,
-    packageName: options.packageName,
-    componentName: "DsTextField",
-    propName: 'SelectProps',
-    slotName: 'select',
-  });
-
-  movePropIntoSlotProps(j, {
-    root,
-    packageName: options.packageName,
-    componentName: "DsTextField",
-    propName: 'InputLabelProps',
-    slotName: 'inputLabel',
-  });
-
-  movePropIntoSlotProps(j, {
-    root,
-    packageName: options.packageName,
-    componentName: "DsTextField",
-    propName: 'FormHelperTextProps',
-    slotName: 'formHelperText',
-  });
+  replaceComponentsWithSlots(j, { root, packageName: options.packageName, componentName: 'DsTextField' });
 
   return root.toSource(printOptions);
 }

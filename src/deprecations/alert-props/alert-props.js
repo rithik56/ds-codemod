@@ -10,6 +10,7 @@ export default function transformer(file, api, options) {
   const printOptions = options.printOptions;
 
   replaceComponentsWithSlots(j, { root, packageName: options.packageName, componentName: 'Alert' });
+  replaceComponentsWithSlots(j, { root, packageName: options.packageName, componentName: 'DsToast' });
 
   return root.toSource(printOptions);
 }
