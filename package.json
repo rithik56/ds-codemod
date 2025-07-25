@@ -1,6 +1,6 @@
 {
   "name": "ds-codemod",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "author": "Rithik Agarwal",
   "description": "Codemod scripts for React Design System",
   "bin": {
